@@ -3,16 +3,13 @@ import { PublicKey } from "@solana/web3.js";
 
 export interface AppConfig {
   rpcUrl: string;
-  sendRpcUrl: string;
   alphaVault: PublicKey;
   walletsFile: string;
   perWalletDeposit?: string;
   totalDeposit?: string;
-  jitoBlockEngine: string;
-  jitoTipLamports: number;
-  jitoTipperIndex: number;
   priorityFeeMicroLamports: number;
   computeUnitLimit: number;
+  concurrency: number;
   dryRun: boolean;
 }
 
@@ -48,16 +45,13 @@ function boolEnv(name: string, fallback: boolean): boolean {
 export function loadConfig(): AppConfig {
   const cfg: AppConfig = {
     rpcUrl: required("RPC_URL"),
-    sendRpcUrl: optional("SEND_RPC_URL"),
     alphaVault: new PublicKey(required("ALPHA_VAULT_ADDRESS")),
     walletsFile: optional("WALLETS_FILE", "./wallets.json"),
     perWalletDeposit: optional("PER_WALLET_DEPOSIT") || undefined,
     totalDeposit: optional("TOTAL_DEPOSIT") || undefined,
-    jitoBlockEngine: optional("JITO_BLOCK_ENGINE", "https://mainnet.block-engine.jito.wtf"),
-    jitoTipLamports: intEnv("JITO_TIP_LAMPORTS", 100_000),
-    jitoTipperIndex: intEnv("JITO_TIPPER_INDEX", 0),
     priorityFeeMicroLamports: intEnv("PRIORITY_FEE_MICROLAMPORTS", 50_000),
     computeUnitLimit: intEnv("COMPUTE_UNIT_LIMIT", 400_000),
+    concurrency: intEnv("CONCURRENCY", 5),
     dryRun: boolEnv("DRY_RUN", false),
   };
 

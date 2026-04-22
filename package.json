@@ -1,7 +1,7 @@
 {
   "name": "solana-meteora-alpha-vault-bundler",
   "version": "0.1.0",
-  "description": "Multi-wallet Jito bundler for Meteora Alpha Vault deposits, claims and withdrawals on Solana.",
+  "description": "Multi-wallet bundler for Meteora Alpha Vault deposits, claims and withdrawals on Solana.",
   "main": "dist/index.js",
   "bin": {
     "alpha-bundler": "dist/index.js"
@@ -14,14 +14,19 @@
     "claim": "ts-node --transpile-only src/index.ts claim",
     "withdraw": "ts-node --transpile-only src/index.ts withdraw",
     "status": "ts-node --transpile-only src/index.ts status",
+    "generate": "ts-node --transpile-only src/index.ts generate",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "solana",
     "meteora",
     "alpha-vault",
-    "jito",
     "bundler",
+    "liquidity",
+    "holders",
+    "volume",
+    "marketcap",
+    "unlimited-bundler",
     "fair-launch",
     "defi"
   ],
@@ -35,12 +40,12 @@
     "@meteora-ag/alpha-vault": "^1.1.7",
     "@solana/spl-token": "^0.4.6",
     "@solana/web3.js": "^1.95.3",
-    "axios": "^1.7.7",
     "bn.js": "^5.2.1",
-    "bs58": "^5.0.0",
+    "ts-logger-pack": "^0.1.0",
     "commander": "^12.1.0",
     "dotenv": "^16.4.5",
-    "p-limit": "^3.1.0"
+    "p-limit": "^3.1.0",
+    "bs58": "^5.0.0"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.5",

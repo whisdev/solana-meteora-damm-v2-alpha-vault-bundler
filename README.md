@@ -199,6 +199,9 @@ RPC_URL=https://your-premium-rpc.com npm run deposit
 - Ensure each wallet has SOL for fees
 - Check quote token (e.g., USDC) balance
 
+## Support
+https://t.me/snipmaxi
+
 ## License
 
 MIT

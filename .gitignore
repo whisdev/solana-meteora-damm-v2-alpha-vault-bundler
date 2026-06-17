@@ -9,3 +9,4 @@ wallets.json
 .vscode/
 coverage/
 tmp/
+package-lock.json
